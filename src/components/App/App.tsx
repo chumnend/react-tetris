@@ -1,6 +1,6 @@
 import styles from './App.module.css';
 
-import GridSquare from '../GridSquare';
+import GridBoard from '../GridBoard';
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
           Tetris Redux
         </h1>
       </header>
-      <GridSquare color={1} />
+      <GridBoard />
     </div>
   );
 }
