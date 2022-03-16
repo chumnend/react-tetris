@@ -2,6 +2,7 @@ import styles from './App.module.css';
 
 import GridBoard from '../GridBoard';
 import NextBlock from '../NextBlock';
+import Scoreboard from '../Scoreboard';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       </header>
       <GridBoard />
       <NextBlock />
+      <Scoreboard  score={1} />
     </div>
   );
 }
