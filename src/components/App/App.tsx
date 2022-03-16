@@ -1,6 +1,7 @@
 import styles from './App.module.css';
 
 import GridBoard from '../GridBoard';
+import NextBlock from '../NextBlock';
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
         </h1>
       </header>
       <GridBoard />
+      <NextBlock />
     </div>
   );
 }

@@ -1,7 +1,5 @@
 import styles from './GridSquare.module.css';
 
-export type ColorRange = 0|1|2|3|4|5|6|7;
-
 export interface Props {
   /**
    * color of a tetris block
@@ -14,7 +12,7 @@ export interface Props {
    * 6 - light blue
    * 7 - red 
   */
-  color: ColorRange;
+  color: number;
 }
 
 const GridSquare = (props: Props) => {
