@@ -6,6 +6,7 @@
   width: calc(var(--tile-size) * (4 + 1 + 10 + 1 + 4));
   margin: auto;
   display: grid;
+  position: relative;
   grid-gap: var(--tile-size) var(--tile-size);
   grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
   grid-template-rows: 100px var(--grid-height) 100px;

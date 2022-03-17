@@ -4,6 +4,7 @@ import GridBoard from '../GridBoard';
 import NextBlock from '../NextBlock';
 import Scoreboard from '../Scoreboard';
 import Controls from '../Controls';
+import MessagePopup from '../MessagePopup';
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <NextBlock />
       <Scoreboard  score={1} />
       <Controls />
+      <MessagePopup />
     </div>
   );
 }
