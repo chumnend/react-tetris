@@ -6,4 +6,6 @@ const reducers = combineReducers({
   game: gameReducer,
 })
 
+export type IRootState = ReturnType<typeof reducers>;
+
 export default reducers;

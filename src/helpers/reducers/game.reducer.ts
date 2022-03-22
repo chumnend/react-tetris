@@ -1,8 +1,9 @@
 import * as ACTIONS from '../actions';
 import { type ActionType } from '../actions';
+import { defaultState } from '../utils';
 
 
-const gameReducer = (state = {}, action: ActionType) => {
+const gameReducer = (state = defaultState(), action: ActionType) => {
   switch(action.type) {
     case ACTIONS.MOVE_LEFT:
       return state;

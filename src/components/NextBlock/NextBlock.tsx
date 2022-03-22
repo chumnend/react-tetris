@@ -1,15 +1,15 @@
+import { useSelector} from 'react-redux';
+
 import GridSquare from "../GridSquare";
+import { IRootState } from '../../helpers/reducers';
+import { shapes } from '../../helpers/utils';
 import styles from './NextBlock.module.css';
 
 interface Props {}
 
 const NextBlock = (props: Props) => {
-  const box = [
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0],
-  ];
+  const nextShape = useSelector((state: IRootState) => state.game.nextShape);
+  const box = shapes[nextShape][0];
 
   const grid = box.map((rowArray, row) => {
     return rowArray.map((square, col) => {
