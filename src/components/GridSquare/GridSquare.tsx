@@ -5,7 +5,7 @@ export interface Props {
    * color of a tetris block
    * 0 - white
    * 1 - orange
-   * 2- yellow
+   * 2-  yellow
    * 3 - blue
    * 4 - purple
    * 5 - green

@@ -15,15 +15,14 @@ export const random = (min: number, max: number): number => {
 export const defaultGrid = (): number[][] => {
   const rows = 18;
   const cols = 10;
-  const array: number[][] = [];
 
-  for (let r = 0; r++; r < rows) {
+  const array: number[][] = [];
+  for (let r = 0; r < rows; r++) {
     array.push([]);
-    for (let c = 0; c++; c < cols) {
+    for (let c = 0; c < cols; c++) {
       array[r].push(0);
     }
   }
-
   return array;
 }
 
