@@ -1,18 +1,35 @@
+import { useSelector, useDispatch } from 'react-redux';
+
+import { pause, resume, restart } from '../../helpers/actions';
+import { IRootState } from '../../helpers/reducers';
 import styles from './Scoreboard.module.css';
 
-interface Props {
-  score: number;
-}
+const Scoreboard = () => {
+  const { score, isRunning, gameOver } = useSelector((state: IRootState) => state.game);
+  const dispatch = useDispatch();
 
-const Scoreboard = (props: Props) => {
-  const handleClick = () => {}
+  const handlePlay = () => {
+    if (gameOver) {
+      return;
+    }
+
+    if (isRunning) {
+      dispatch(pause());
+    } else {
+      dispatch(resume());
+    }
+  }
+
+  const handleRestart = () => {
+    dispatch(restart());
+  }
 
   return (
     <div className={styles.Scoreboard}>
-      <div>Score: {props.score}</div>
+      <div>Score: {score}</div>
       <div>Level: 1</div>
-      <button className={styles.Button} onClick={handleClick}>Play</button>
-      <button className={styles.Button} onClick={handleClick}>Restart</button>
+      <button className={styles.Button} onClick={handlePlay}>Play</button>
+      <button className={styles.Button} onClick={handleRestart}>Restart</button>
     </div>
   );
 }
