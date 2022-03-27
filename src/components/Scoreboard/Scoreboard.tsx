@@ -28,7 +28,9 @@ const Scoreboard = () => {
     <div className={styles.Scoreboard}>
       <div>Score: {score}</div>
       <div>Level: 1</div>
-      <button className={styles.Button} onClick={handlePlay}>Play</button>
+      <button className={styles.Button} onClick={handlePlay}>
+        {isRunning ? 'Pause' : 'Resume'}
+      </button>
       <button className={styles.Button} onClick={handleRestart}>Restart</button>
     </div>
   );
