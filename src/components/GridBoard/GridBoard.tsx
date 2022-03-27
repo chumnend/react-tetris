@@ -1,17 +1,45 @@
-import React from 'react';
-import { useSelector} from 'react-redux';
+import { useRef, useEffect } from 'react';
+import { useSelector, useDispatch} from 'react-redux';
 
 import GridSquare from "../GridSquare";
 import { IRootState } from '../../helpers/reducers';
 import { shapes } from '../../helpers/utils';
 import styles from './GridBoard.module.css';
+import { moveDown } from '../../helpers/actions';
 
 const GridBoard = () => {
-  const game = useSelector((state: IRootState) => state.game);
-  const { grid, shape, rotation, x, y, isRunning, speed } = game;
+  const requestRef = useRef(0);
+  const lastUpdateTimeRef = useRef(0);
+  const progressTimeRef = useRef(0);
+
+  const { grid, shape, rotation, x, y, isRunning, speed } = useSelector((state: IRootState) => state.game);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    requestRef.current = requestAnimationFrame(update);
+    
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [isRunning]);
 
   const block = shapes[shape][rotation];
   const blockColor = shape;
+
+  const update = (time: number) => {
+    requestRef.current = requestAnimationFrame(update);
+    if (!isRunning) {
+      return;
+    }
+    if(!lastUpdateTimeRef.current) {
+      lastUpdateTimeRef.current = time;
+    }
+    const deltaTime = time - lastUpdateTimeRef.current;
+    progressTimeRef.current += deltaTime;
+    if (progressTimeRef.current > speed) {
+      dispatch(moveDown());
+      progressTimeRef.current = 0;
+    }
+    lastUpdateTimeRef.current = time;
+  }
 
   // map rows
   const gridSquares = grid.map((rowArray, row) => {
