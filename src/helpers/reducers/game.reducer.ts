@@ -62,7 +62,7 @@ const gameReducer = (state = defaultState(), action: ActionType) => {
     case ACTIONS.RESUME:
       return { ...state, isRunning: true };
     case ACTIONS.RESTART:
-      return state;
+      return defaultState();
     default:
       return state;
   }
