@@ -18,7 +18,7 @@ const App = () => {
         </header>
         <GridBoard />
         <NextBlock />
-        <Scoreboard  score={1} />
+        <Scoreboard/>
         <Controls />
         <MessagePopup />
       </div>
