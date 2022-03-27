@@ -18,14 +18,26 @@ const gameReducer = (state = defaultState(), action: ActionType) => {
       }
       return state;
     case ACTIONS.MOVE_DOWN:
-      // check if current block can move to potential position
+      // get next Y position
       const maybeY = y + 1;
+
+      // check if current block can move to potential position
       if (canMoveTo(shape, grid, x, maybeY, rotation)) {
         return { ...state, y: maybeY };
       }
 
       // if not, place the block
-      const newGrid = addBlockToGrid(shape, grid, x, y, rotation);
+      const obj = addBlockToGrid(shape, grid, x, y, rotation);
+      const newGrid = obj.grid;
+      const gameOver = obj.gameOver;
+
+      if (gameOver) {
+        // Game Over
+        const newState = { ...state };
+        newState.shape = 0;
+        newState.grid = newGrid;
+        return { ...state, gameOver: true };
+      }
 
       // reset some thing to state a new shape/block
       const newState = defaultState();
@@ -35,13 +47,7 @@ const gameReducer = (state = defaultState(), action: ActionType) => {
       newState.score = score;
       newState.isRunning = isRunning;
 
-      if (!canMoveTo(nextShape, newGrid, 0, 4, 0)) {
-        // Game Over
-        console.log("Game should be over?");
-        newState.shape = 0;
-        return { ...state, gameOver: true }
-      }
-
+      // TODO: Check and set level
       newState.score = score + checkRows(newGrid);
 
       return newState;

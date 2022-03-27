@@ -6,30 +6,42 @@ import styles from './Controls.module.css';
 
 const Controls = () => {
   const dispatch = useDispatch();
-  const isRunning = useSelector((state: IRootState) => state.game.isRunning);
+  const { isRunning, gameOver} = useSelector((state: IRootState) => state.game);
 
   const handleLeft = () => {
+    if (!isRunning || gameOver) {
+      return;
+    }
     dispatch(moveLeft());
   }
 
   const handleRight = () => {
+    if (!isRunning || gameOver) {
+      return;
+    }
     dispatch(moveRight());
   }
 
   const handleDown = () => {
+    if (!isRunning || gameOver) {
+      return;
+    }
     dispatch(moveDown());
   }
 
   const handleRotate = () => {
+    if (!isRunning || gameOver) {
+      return;
+    }
     dispatch(rotate());
   }
 
   return (
     <div className={styles.Controls}>
-      <button className={styles.Button} onClick={handleLeft}>Left</button>
-      <button className={styles.Button} onClick={handleRight}>Right</button>
-      <button className={styles.Button} onClick={handleRotate}>Rotate</button>
-      <button className={styles.Button} onClick={handleDown}>Down</button>
+      <button className={styles.Button} disabled={!isRunning || gameOver} onClick={handleLeft}>Left</button>
+      <button className={styles.Button} disabled={!isRunning || gameOver} onClick={handleRight}>Right</button>
+      <button className={styles.Button} disabled={!isRunning || gameOver} onClick={handleRotate}>Rotate</button>
+      <button className={styles.Button} disabled={!isRunning || gameOver} onClick={handleDown}>Down</button>
     </div>
   );
 }
