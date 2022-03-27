@@ -28,8 +28,8 @@ const Controls = () => {
     <div className={styles.Controls}>
       <button className={styles.Button} onClick={handleLeft}>Left</button>
       <button className={styles.Button} onClick={handleRight}>Right</button>
-      <button className={styles.Button} onClick={handleDown}>Rotate</button>
-      <button className={styles.Button} onClick={handleRotate}>Down</button>
+      <button className={styles.Button} onClick={handleRotate}>Rotate</button>
+      <button className={styles.Button} onClick={handleDown}>Down</button>
     </div>
   );
 }
