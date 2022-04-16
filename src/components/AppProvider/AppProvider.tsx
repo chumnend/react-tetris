@@ -14,11 +14,7 @@ const store = createStore(
 );
 
 const AppProvider = (props: Props) => {
-  return (
-    <Provider store={store}>
-      {props.children}
-    </Provider>
-  );
-} 
+  return <Provider store={store}>{props.children}</Provider>;
+};
 
 export default AppProvider;

@@ -10,9 +10,10 @@
   grid-gap: var(--tile-size) var(--tile-size);
   grid-template-columns: var(--col-side) var(--col-center) var(--col-side);
   grid-template-rows: 100px var(--grid-height) 100px;
-  grid-template-areas: "h h h"
-                       "l c r"
-                       ". b .";
+  grid-template-areas:
+    'h h h'
+    'l c r'
+    '. b .';
 }
 
 .Header {

@@ -2,7 +2,6 @@ import * as ACTIONS from '../actions';
 import { type ActionType } from '../actions';
 import { defaultState, randomShape, nextRotation, canMoveTo, addBlockToGrid, checkRows } from '../utils';
 
-
 const gameReducer = (state = defaultState(), action: ActionType) => {
   const { shape, grid, x, y, rotation, nextShape, score, isRunning } = state;
 
@@ -66,6 +65,6 @@ const gameReducer = (state = defaultState(), action: ActionType) => {
     default:
       return state;
   }
-}
+};
 
 export default gameReducer;

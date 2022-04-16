@@ -18,11 +18,11 @@ const Scoreboard = () => {
     } else {
       dispatch(resume());
     }
-  }
+  };
 
   const handleRestart = () => {
     dispatch(restart());
-  }
+  };
 
   return (
     <div className={styles.Scoreboard}>
@@ -31,9 +31,11 @@ const Scoreboard = () => {
       <button className={styles.Button} onClick={handlePlay}>
         {isRunning ? 'Pause' : 'Resume'}
       </button>
-      <button className={styles.Button} onClick={handleRestart}>Restart</button>
+      <button className={styles.Button} onClick={handleRestart}>
+        Restart
+      </button>
     </div>
   );
-}
+};
 
 export default Scoreboard;

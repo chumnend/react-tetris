@@ -12,18 +12,16 @@ const App = () => {
     <AppProvider>
       <div className={styles.App}>
         <header className={styles.Header}>
-          <h1 className="App-title">
-            Tetris Redux
-          </h1>
+          <h1 className="App-title">Tetris Redux</h1>
         </header>
         <GridBoard />
         <NextBlock />
-        <Scoreboard/>
+        <Scoreboard />
         <Controls />
         <MessagePopup />
       </div>
     </AppProvider>
   );
-}
+};
 
 export default App;

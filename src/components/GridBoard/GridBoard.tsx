@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { useSelector, useDispatch} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import GridSquare from "../GridSquare";
+import GridSquare from '../GridSquare';
 import { IRootState } from '../../helpers/reducers';
 import { shapes } from '../../helpers/utils';
 import styles from './GridBoard.module.css';
@@ -17,7 +17,7 @@ const GridBoard = () => {
 
   useEffect(() => {
     requestRef.current = requestAnimationFrame(update);
-    
+
     return () => cancelAnimationFrame(requestRef.current);
   }, [isRunning]);
 
@@ -29,7 +29,7 @@ const GridBoard = () => {
     if (!isRunning) {
       return;
     }
-    if(!lastUpdateTimeRef.current) {
+    if (!lastUpdateTimeRef.current) {
       lastUpdateTimeRef.current = time;
     }
     const deltaTime = time - lastUpdateTimeRef.current;
@@ -39,7 +39,7 @@ const GridBoard = () => {
       progressTimeRef.current = 0;
     }
     lastUpdateTimeRef.current = time;
-  }
+  };
 
   // map rows
   const gridSquares = grid.map((rowArray, row) => {
@@ -62,14 +62,10 @@ const GridBoard = () => {
 
       // Generate a grid square
       return <GridSquare key={k} color={color} />;
-    })
+    });
   });
 
-  return (
-    <div className={styles.GridBoard}>
-      {gridSquares}
-    </div>
-  );
-}
+  return <div className={styles.GridBoard}>{gridSquares}</div>;
+};
 
 export default GridBoard;
