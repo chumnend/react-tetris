@@ -1,15 +1,22 @@
-import styles from './App.module.css';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-import AppProvider from '../AppProvider';
 import GridBoard from '../GridBoard';
 import NextBlock from '../NextBlock';
 import Scoreboard from '../Scoreboard';
 import Controls from '../Controls';
 import MessagePopup from '../MessagePopup';
+import reducers from '../../helpers/reducers';
+import styles from './App.module.css';
+
+const store = createStore(
+  reducers,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
 const App = () => {
   return (
-    <AppProvider>
+    <Provider store={store}>
       <div className={styles.App}>
         <header className={styles.Header}>
           <h1 className="App-title">Tetris Redux</h1>
@@ -20,7 +27,7 @@ const App = () => {
         <Controls />
         <MessagePopup />
       </div>
-    </AppProvider>
+    </Provider>
   );
 };
 
