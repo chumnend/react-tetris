@@ -16,7 +16,7 @@ const GridBoard = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    requestRef.current = requestAnimationFrame(update);
+    requestRef.current = requestAnimationFrame(updateRef.current);
 
     return () => cancelAnimationFrame(requestRef.current);
   }, [isRunning]);
@@ -25,7 +25,7 @@ const GridBoard = () => {
   const blockColor = shape;
 
   const update = (time: number) => {
-    requestRef.current = requestAnimationFrame(update);
+    requestRef.current = requestAnimationFrame(updateRef.current);
     if (!isRunning) {
       return;
     }
@@ -40,6 +40,8 @@ const GridBoard = () => {
     }
     lastUpdateTimeRef.current = time;
   };
+
+  const updateRef = useRef(update);
 
   // map rows
   const gridSquares = grid.map((rowArray, row) => {
