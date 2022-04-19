@@ -11,7 +11,8 @@ import styles from './App.module.css';
 
 const store = createStore(
   reducers,
-  (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+  // Uncomment for development use only, when pushing to master make sure this line is commented out
+  // (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
 const App = () => {
