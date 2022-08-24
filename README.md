@@ -2,7 +2,7 @@
 
 ## About The Project
 
-React Tetris is a tetris clone built in React. The motiviation of this project was just to build a simple game using React and Typescript, following this [tutorial](https://makeschool.org/mediabook/oa/tutorials/react-redux-tetris-app-tutorial-o4s/tetris-introduction/). Instead of Javascript, I worte the application in Typescript and added some additional tooling for fun.
+React Tetris is a tetris clone built in React. The motivation of this project was just to build a simple game using React and Typescript, following this [tutorial](https://makeschool.org/mediabook/oa/tutorials/react-redux-tetris-app-tutorial-o4s/tetris-introduction/). Instead of Javascript, I worte the application in Typescript and added some additional tooling for fun.
 
 ### Demo
 <p align="center">
